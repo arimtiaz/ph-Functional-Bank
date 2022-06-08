@@ -8,18 +8,24 @@ function getInputValue(inputId){
     return amountValue;
 }
   
+function updateTotalField(depositAmount) {
+    const depositTotal = document.getElementById('deposit-total');
+    const depositTotalText = depositTotal.innerText;
+    const previousDepositTotal =  parseFloat(depositTotalText);
 
+    depositTotal.innerText = previousDepositTotal + depositAmount;
+}
 
 // Deposit
 document.getElementById('deposit-button').addEventListener('click', function(){
     const depositAmount = getInputValue('deposit-input');
     
-
     // get current deposit
-    const depositTotal = document.getElementById('total-deposit');
-    const depositTotalText = depositTotal.innerText;
-    const previousDepositTotal = parseFloat(depositTotalText);
-    depositTotal.innerText = previousDepositTotal + depositAmount;
+    // const depositTotal = document.getElementById('total-deposit');
+    // const depositTotalText = depositTotal.innerText;
+    // const previousDepositTotal = parseFloat(depositTotalText);
+    // depositTotal.innerText = previousDepositTotal + depositAmount;
+    updateTotalField(depositAmount);
 
     // update balance
     const balanceTotal = document.getElementById('balance-total')
